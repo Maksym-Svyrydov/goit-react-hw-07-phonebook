@@ -11,7 +11,7 @@ import { getContacts, getFilter } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const search = useSelector(getFilter);
+  // const search = useSelector(getFilter);
 
   useEffect(() => {
     dispatch(fetchContacts());
