@@ -4,15 +4,19 @@ import Filter from './Filter';
 import { Container, PhoneBook, Title } from '../components/App.styled';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operation';
+import { getContacts, getFilter } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const search = useSelector(getFilter);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  const { items } = useSelector(getContacts);
   return (
     <div
       style={{
@@ -26,10 +30,10 @@ export const App = () => {
     >
       <Container>
         <PhoneBook>Phonebook</PhoneBook>
-        <ContactForm />
+        <ContactForm contacts={items} />
         <Title>Contacts</Title>
         <Filter />
-        <ContactList />
+        <ContactList contacts={items} />
         <ToastContainer autoClose={2500} limit={3} />
       </Container>
     </div>
