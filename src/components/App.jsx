@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operation';
-import { getContacts, getFilter } from 'redux/selectors';
+import { getContacts } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
