@@ -4,14 +4,18 @@ import { List, Item, Text, DeleteBtn } from './ContactList.styled';
 
 const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContacts(contacts.id));
 
   return (
     <List>
-      {contacts.map(({ id, name, phone }) => (
+      {contacts.map(({ name, phone, id }) => (
         <Item key={id}>
           <Text>{`${name}: ${phone}`}</Text>
-          <DeleteBtn type="button" onClick={handleDelete}>
+          <DeleteBtn
+            type="button"
+            onClick={() => {
+              dispatch(deleteContacts(id));
+            }}
+          >
             Delete
           </DeleteBtn>
         </Item>

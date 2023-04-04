@@ -7,15 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operation';
-import { getContacts } from 'redux/selectors';
+import { getContacts, getFilter } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const search = useSelector(getFilter);
+  const search = useSelector(getFilter);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    dispatch(fetchContacts(search));
+  }, [dispatch, search]);
   const { items } = useSelector(getContacts);
   return (
     <div

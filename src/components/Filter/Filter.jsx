@@ -7,6 +7,7 @@ import { FilterContaner, FilterInput } from './Filter.styled';
 const Filter = () => {
   const value = useSelector(getFilter);
   const dispatch = useDispatch();
+
   const handleChange = e => {
     const { value } = e.target;
     dispatch(filterContacts(value));
