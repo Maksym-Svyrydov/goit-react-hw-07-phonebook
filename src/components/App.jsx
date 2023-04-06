@@ -1,6 +1,5 @@
 import ContactForm from './Form';
 import ContactList from './ContactList';
-import { Default } from './ContactList/ContactList.styled';
 import Filter from './Filter';
 import { Container, PhoneBook, Title } from '../components/App.styled';
 import { ToastContainer } from 'react-toastify';
@@ -34,11 +33,7 @@ export const App = () => {
         <ContactForm contacts={items} />
         <Title>Contacts</Title>
         <Filter />
-        {items.length === 0 ? (
-          <Default>There are no contacts yet....</Default>
-        ) : (
-          <ContactList contacts={items} />
-        )}
+        <ContactList contacts={items} />
         <ToastContainer autoClose={2500} limit={3} />
       </Container>
     </div>
