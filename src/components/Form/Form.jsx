@@ -16,8 +16,8 @@ export const ContactForm = ({ contacts }) => {
     const name = form.elements.name.value;
     const phone = form.elements.number.value;
     const newContatact = { id: nanoid(), name: name, phone: phone };
-    if (contacts.find(el => el.name === name)) {
-      return toast.error(`${name} is already in contacts.`, {
+    if (contacts.find(el => el.phone === phone)) {
+      return toast.error(`${phone} is already in contacts.`, {
         position: 'top-right',
         autoClose: 1500,
         hideProgressBar: false,
