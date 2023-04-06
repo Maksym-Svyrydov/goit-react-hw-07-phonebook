@@ -30,7 +30,6 @@ export const ContactForm = ({ contacts }) => {
       });
     } else {
       dispatch(addContacts(newContatact));
-      console.log(newContatact);
     }
     form.reset();
   };

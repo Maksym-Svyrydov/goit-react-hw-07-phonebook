@@ -54,3 +54,11 @@ export const DeleteBtn = styled.button`
     font-size: 12px;
   }
 `;
+export const Default = styled.li`
+  display: block;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 0;
+  justify-content: space-between;
+  margin-bottom: 5px;
+`;
