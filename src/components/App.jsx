@@ -34,8 +34,8 @@ export const App = () => {
         <ContactForm contacts={items} />
         <Title>Contacts</Title>
         <Filter />
-        {selectContacts.length === 0 ? (
-          <Default>There is not contacts yet</Default>
+        {items.length === 0 ? (
+          <Default>There are no contacts yet....</Default>
         ) : (
           <ContactList contacts={items} />
         )}
