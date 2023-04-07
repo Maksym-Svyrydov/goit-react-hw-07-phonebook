@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { nanoid } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { selectContactsList } from 'redux/selectors';
 import { Form, InputName, InputNumber, InputBtn } from './Form.styled';
 import { addContacts } from '../../redux/operation';
 
-export const ContactForm = ({ contacts }) => {
+export const ContactForm = () => {
   const dispatch = useDispatch();
-
+  const contacts = useSelector(selectContactsList);
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;

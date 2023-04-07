@@ -1,11 +1,12 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts } from '../../redux/operation';
 import { List, Item, Text, DeleteBtn, Default } from './ContactList.styled';
+import { selectContactsList } from 'redux/selectors';
 
-const ContactList = ({ contacts }) => {
+const ContactList = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContactsList);
   const defaultMessage = contacts.length === 0;
-
   return (
     <List>
       {defaultMessage && (

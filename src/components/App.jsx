@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operation';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchContacts(search));
   }, [dispatch, search]);
-  const { items } = useSelector(selectContacts);
+
   return (
     <div
       style={{
@@ -30,10 +30,10 @@ export const App = () => {
     >
       <Container>
         <PhoneBook>Phonebook</PhoneBook>
-        <ContactForm contacts={items} />
+        <ContactForm />
         <Title>Contacts</Title>
         <Filter />
-        <ContactList contacts={items} />
+        <ContactList />
         <ToastContainer autoClose={2500} limit={3} />
       </Container>
     </div>
